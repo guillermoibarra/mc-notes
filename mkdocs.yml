@@ -1,0 +1,57 @@
+site_name: Métodos de Monte Carlo para Transporte de Partículas Nucleares con Python
+site_author: Guillermo Ibarra
+
+# Repository
+
+
+
+# Configuration
+theme:
+  name: material
+  language: es
+
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Cambiar a modo claro
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Cambiar a modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Cambiar a la preferencia del sistema
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  logo: assets/poker_chip.png
+
+  features:
+    - content.code.copy
+    - content.tooltips
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tabs
+    - navidation.tabs.sticky
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - toc.integrate
+
+# Page tree
+nav:
+  - Inicio: index.md
+  - Herramientas de Desarrollo:
+    - Docker: tools/docker.md
+    - Terminal: tools/terminal.md
+  - Primeros Pasos:
+    - Probabilidad: intro/probability.md
