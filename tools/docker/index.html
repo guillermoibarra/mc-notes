@@ -1,0 +1,1162 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Guillermo Ibarra">
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../terminal/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+    
+    
+      
+        <title>Docker - Métodos de Monte Carlo para Transporte de Partículas Nucleares con Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#contenedor-de-docker-para-el-curso-de-monte-carlo" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Métodos de Monte Carlo para Transporte de Partículas Nucleares con Python" class="md-header__button md-logo" aria-label="Métodos de Monte Carlo para Transporte de Partículas Nucleares con Python" data-md-component="logo">
+      
+  <img src="../../assets/poker_chip.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Métodos de Monte Carlo para Transporte de Partículas Nucleares con Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Docker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Cambiar a la preferencia del sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Cambiar a la preferencia del sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  Herramientas de Desarrollo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../intro/probability/" class="md-tabs__link">
+          
+  
+  Primeros Pasos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Métodos de Monte Carlo para Transporte de Partículas Nucleares con Python" class="md-nav__button md-logo" aria-label="Métodos de Monte Carlo para Transporte de Partículas Nucleares con Python" data-md-component="logo">
+      
+  <img src="../../assets/poker_chip.png" alt="logo">
+
+    </a>
+    Métodos de Monte Carlo para Transporte de Partículas Nucleares con Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Herramientas de Desarrollo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Herramientas de Desarrollo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion-a-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción a Docker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducción a Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Qué es Docker?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-se-usa-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cómo se Usa Docker?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beneficios-de-usar-docker-en-este-curso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beneficios de Usar Docker en Este Curso
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusión
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrucciones-para-configurar-el-entorno" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instrucciones para Configurar el Entorno
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instrucciones para Configurar el Entorno">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisitos-previos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisitos Previos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalación Paso a Paso
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instalación Paso a Paso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-clonar-el-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Clonar el Repositorio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-construir-el-contenedor" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Construir el Contenedor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ejecutar-el-contenedor" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Ejecutar el Contenedor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comandos-adicionales-utiles-para-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comandos Adicionales Útiles para Docker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comandos Adicionales Útiles para Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-detener-los-contenedores" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Detener los Contenedores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-reiniciar-los-contenedores" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Reiniciar los contenedores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ver-los-logs-de-un-contenedor" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Ver los Logs de un Contenedor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-actualizar-el-entorno-despues-de-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Actualizar el Entorno Después de Cambios
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-eliminar-imagenes-no-utilizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Eliminar Imágenes No Utilizadas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-acceder-a-la-terminal-del-contenedor-con-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Acceder a la Terminal del Contenedor con Bash
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-listar-todos-los-contenedores-activos-e-inactivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Listar Todos los Contenedores (Activos e Inactivos)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-eliminar-un-contenedor-especifico" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Eliminar un Contenedor Específico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-ver-las-imagenes-disponibles-en-tu-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Ver las Imágenes Disponibles en tu Sistema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-inspeccionar-un-contenedor-o-imagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Inspeccionar un Contenedor o Imagen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-comprobar-el-estado-del-sistema-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Comprobar el Estado del Sistema Docker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-limpiar-recursos-no-utilizados" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Limpiar Recursos No Utilizados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-ejecutar-comandos-en-un-contenedor-en-ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Ejecutar Comandos en un Contenedor en Ejecución
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-guardar-y-cargar-imagenes-de-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Guardar y Cargar Imágenes de Docker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-buscar-imagenes-en-docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. Buscar Imágenes en Docker Hub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-actualizar-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      16. Actualizar Docker Compose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-mover-archivos-hacia-y-desde-el-contenedor" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. Mover Archivos hacia y desde el Contenedor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen-de-comandos-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resumen de Comandos Clave
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terminal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Terminal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Primeros Pasos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Primeros Pasos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/probability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probabilidad
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="contenedor-de-docker-para-el-curso-de-monte-carlo">Contenedor de Docker para el Curso de Monte Carlo</h1>
+<p>Bienvenidos al Curso de Monte Carlo. Este documento te guiará a través de la configuración y el uso de un entorno Docker optimizado para el desarrollo y ejecución de proyectos relacionados con Monte Carlo. A continuación, encontrarás una introducción a Docker, instrucciones detalladas sobre cómo utilizarlo, y una lista completa de comandos útiles para gestionar tu entorno Docker de manera eficiente.</p>
+<h2 id="introduccion-a-docker">Introducción a Docker</h2>
+<p>Antes de sumergirnos en los conceptos y aplicaciones avanzadas de Monte Carlo, es fundamental comprender las herramientas que facilitarán nuestro aprendizaje y desarrollo durante el curso. Una de estas herramientas clave es <strong>Docker</strong>. En esta sección, exploraremos qué es Docker, cómo se utiliza y los beneficios que aporta específicamente a nuestro curso.</p>
+<h3 id="que-es-docker">¿Qué es Docker?</h3>
+<p><strong>Docker</strong> es una plataforma de código abierto que permite automatizar la creación, despliegue y gestión de contenedores de software. Un contenedor es una unidad estándar de software que empaqueta el código de una aplicación junto con todas sus dependencias, bibliotecas y configuraciones necesarias para que funcione de manera consistente en cualquier entorno.</p>
+<p><strong>Componentes Clave de Docker:</strong></p>
+<ul>
+<li><strong>Imagen (Image)</strong>: Una plantilla inmutable que contiene el sistema de archivos y las configuraciones necesarias para ejecutar una aplicación.</li>
+<li><strong>Contenedor (Container)</strong>: Una instancia en ejecución de una imagen. Los contenedores son aislados y portátiles.</li>
+<li><strong>Dockerfile</strong>: Un archivo de texto que contiene una serie de instrucciones para construir una imagen de Docker.</li>
+<li><strong>Docker Compose</strong>: Una herramienta que permite definir y gestionar aplicaciones multi-contenedor utilizando un archivo YAML.</li>
+</ul>
+<h3 id="como-se-usa-docker">¿Cómo se Usa Docker?</h3>
+<p>Docker se utiliza para crear entornos de desarrollo y producción que sean consistentes y reproducibles. A continuación, se describen algunos usos comunes de Docker:</p>
+<ol>
+<li><strong>Desarrollo de Aplicaciones</strong>: Los desarrolladores pueden crear contenedores que replican el entorno de producción, asegurando que el código funcione de la misma manera en diferentes máquinas.</li>
+<li><strong>Pruebas y QA</strong>: Facilita la creación de entornos aislados para realizar pruebas automatizadas y garantizar la calidad del software.</li>
+<li><strong>Despliegue de Aplicaciones</strong>: Permite desplegar aplicaciones de manera rápida y eficiente en diferentes plataformas y servicios en la nube.</li>
+<li><strong>Microservicios</strong>: Docker es ideal para arquitecturas basadas en microservicios, donde cada componente de la aplicación se ejecuta en su propio contenedor.</li>
+</ol>
+<p><strong>Flujo de Trabajo Básico con Docker:</strong></p>
+<ol>
+<li><strong>Escribir un Dockerfile</strong>: Define las instrucciones para construir la imagen de Docker.</li>
+<li><strong>Construir la Imagen</strong>: Utiliza el comando <code>docker build</code> para crear una imagen a partir del Dockerfile.</li>
+<li><strong>Ejecutar un Contenedor</strong>: Inicia un contenedor basado en la imagen creada.</li>
+<li><strong>Gestionar Contenedores</strong>: Utiliza comandos como <code>docker ps</code>, <code>docker stop</code>, y <code>docker rm</code> para gestionar los contenedores en ejecución.</li>
+</ol>
+<h3 id="beneficios-de-usar-docker-en-este-curso">Beneficios de Usar Docker en Este Curso</h3>
+<p>Integrar Docker en nuestro curso de Monte Carlo ofrece múltiples ventajas que enriquecerán tu experiencia de aprendizaje:</p>
+<ol>
+<li>
+<p><strong>Entorno Consistente</strong>: Docker garantiza que todos los estudiantes trabajen en el mismo entorno de desarrollo, eliminando las discrepancias que pueden surgir debido a diferencias en las configuraciones locales. Esto asegura que el código y las aplicaciones funcionen de manera idéntica para todos.</p>
+</li>
+<li>
+<p><strong>Fácil Configuración y Despliegue</strong>: Con Docker, configurar el entorno de desarrollo es rápido y sencillo. No necesitas preocuparte por instalar manualmente dependencias, bibliotecas o herramientas específicas. Simplemente clonas el repositorio, construyes el contenedor y estás listo para comenzar.</p>
+</li>
+<li>
+<p><strong>Aislamiento de Proyectos</strong>: Cada proyecto o ejercicio puede ejecutarse en su propio contenedor aislado, evitando conflictos entre diferentes versiones de software o dependencias. Esto facilita la gestión de múltiples proyectos simultáneamente.</p>
+</li>
+<li>
+<p><strong>Portabilidad</strong>: Los contenedores Docker pueden ejecutarse en cualquier sistema que soporte Docker, ya sea tu computadora local, un servidor remoto o en la nube. Esto permite que puedas continuar tu trabajo desde diferentes ubicaciones sin problemas de compatibilidad.</p>
+</li>
+<li>
+<p><strong>Reproducibilidad</strong>: Docker facilita la replicación de entornos y experimentos, lo cual es crucial en metodologías como Monte Carlo donde la reproducibilidad de resultados es fundamental. Puedes compartir fácilmente tu entorno con otros estudiantes o colaboradores, asegurando que todos trabajen bajo las mismas condiciones.</p>
+</li>
+<li>
+<p><strong>Escalabilidad</strong>: A medida que avances en el curso y trabajes en proyectos más complejos, Docker te permitirá escalar tu entorno de desarrollo sin dificultades, gestionando recursos de manera eficiente y optimizando el rendimiento.</p>
+</li>
+<li>
+<p><strong>Aprendizaje de Herramientas Industriales</strong>: Docker es una herramienta ampliamente utilizada en la industria del software y la ciencia de datos. Al familiarizarte con Docker durante este curso, adquirirás habilidades valiosas que serán altamente apreciadas en el mercado laboral.</p>
+</li>
+</ol>
+<h3 id="conclusion">Conclusión</h3>
+<p>Docker es una herramienta poderosa que transformará la manera en que desarrollas y gestionas tus proyectos en el Curso de Monte Carlo. Al aprovechar sus capacidades, podrás enfocarte en los conceptos y técnicas de Monte Carlo sin preocuparte por las complicaciones técnicas relacionadas con el entorno de desarrollo. En las próximas secciones, profundizaremos en la configuración del entorno y en el uso práctico de Docker, aprendiendo a construir, gestionar y optimizar contenedores para maximizar tu productividad y eficiencia.</p>
+<hr />
+<h2 id="instrucciones-para-configurar-el-entorno">Instrucciones para Configurar el Entorno</h2>
+<p>Este proyecto permite configurar y ejecutar un entorno Docker con JupyterLab de forma rápida. Sigue estos pasos para asegurarte de que todo funcione correctamente.</p>
+<h3 id="requisitos-previos">Requisitos Previos</h3>
+<p>Antes de comenzar, asegúrate de tener instalados los siguientes programas:</p>
+<ol>
+<li><strong>Windows Terminal</strong>: Necesario para ejecutar comandos en la terminal.</li>
+<li><strong>Git</strong>: Necesario para clonar el repositorio.</li>
+<li><strong>Docker Desktop</strong>: Necesario para ejecutar contenedores Docker.</li>
+</ol>
+<h3 id="instalacion-paso-a-paso">Instalación Paso a Paso</h3>
+<h4 id="1-clonar-el-repositorio">1. Clonar el Repositorio</h4>
+<p>Ve al Escritorio, haz clic derecho y selecciona <strong>Abrir en Windows Terminal</strong>. Clona el repositorio con el siguiente comando:</p>
+<pre><code class="language-bash">git clone https://github.com/guillermoibarra/mc-docker-env.git
+</code></pre>
+<h4 id="2-construir-el-contenedor">2. Construir el Contenedor</h4>
+<p>Navega al directorio raíz del proyecto recién clonado:</p>
+<pre><code class="language-bash">cd mc-docker-env
+</code></pre>
+<p>Construir el contenedor:</p>
+<pre><code class="language-bash">docker-compose build
+</code></pre>
+<p>Iniciar el contenedor en modo despejado:</p>
+<pre><code class="language-bash">docker-compose up -d
+</code></pre>
+<p>Verificar el contenedor:</p>
+<pre><code class="language-bash">docker ps
+</code></pre>
+<h4 id="3-ejecutar-el-contenedor">3. Ejecutar el Contenedor</h4>
+<p>Empezar el proceso <code>zsh</code>:</p>
+<pre><code class="language-bash">docker exec -it mc-taller-env-container zsh
+</code></pre>
+<hr />
+<h2 id="comandos-adicionales-utiles-para-docker">Comandos Adicionales Útiles para Docker</h2>
+<p>Además de los comandos básicos que ya has incluido en el README, hay una serie de comandos adicionales que pueden ser muy útiles para gestionar y mantener tu entorno Docker durante el curso de Monte Carlo. A continuación, se presentan estos comandos junto con una breve explicación de su uso y ejemplos prácticos en el contexto de nuestro proyecto.</p>
+<h3 id="1-detener-los-contenedores">1. Detener los Contenedores</h3>
+<p>Para detener los contenedores que están actualmente en ejecución, puedes usar:</p>
+<pre><code class="language-bash">docker-compose down
+</code></pre>
+<p>Este comando detiene y elimina los contenedores, redes y volúmenes definidos en el archivo <code>docker-compose.yml</code>. Es útil cuando necesitas reiniciar el entorno o liberar recursos del sistema.</p>
+<h3 id="2-reiniciar-los-contenedores">2. Reiniciar los contenedores</h3>
+<p>Si necesitas reiniciar los contenedores después de realizar cambios en la configuración o en el código, puedes usar:</p>
+<pre><code class="language-bash">docker-compose restart
+</code></pre>
+<p>Reinicia todos los contenedores definidos en el archivo <code>docker-compose.yml</code> sin reconstruir las imágenes.</p>
+<h3 id="3-ver-los-logs-de-un-contenedor">3. Ver los Logs de un Contenedor</h3>
+<p>Para diagnosticar problemas o simplemente monitorear lo que está sucediendo dentro de un contenedor, puedes ver sus logs:</p>
+<pre><code class="language-bash">docker logs &lt;nombre_del_contenedor&gt;
+</code></pre>
+<p>Muestra los registros de salida del contenedor especificado, lo que es útil para depuración y monitoreo.</p>
+<h3 id="4-actualizar-el-entorno-despues-de-cambios">4. Actualizar el Entorno Después de Cambios</h3>
+<p>Si realizas cambios en el <code>Dockerfile</code> o en el <code>docker-compose.yml</code>, necesitarás reconstruir las imágenes y reiniciar los contenedores:</p>
+<pre><code class="language-bash">docker-compose up -d --build
+</code></pre>
+<p>Este comando reconstruye las imágenes según las modificaciones realizadas y luego inicia los contenedores en modo desacoplado.</p>
+<h3 id="5-eliminar-imagenes-no-utilizadas">5. Eliminar Imágenes No Utilizadas</h3>
+<p>Para mantener tu sistema limpio y liberar espacio, puedes eliminar imágenes que ya no se utilizan:</p>
+<pre><code class="language-bash">docker image prune
+</code></pre>
+<p>Elimina todas las imágenes que no están siendo utilizadas por ningún contenedor.</p>
+<h3 id="6-acceder-a-la-terminal-del-contenedor-con-bash">6. Acceder a la Terminal del Contenedor con Bash</h3>
+<p>Aunque estamos usando <code>zsh</code>, a veces puede ser útil acceder al contenedor usando bash si está disponible:</p>
+<pre><code class="language-bash">docker exec -it mc-taller-env-container zsh
+</code></pre>
+<h3 id="7-listar-todos-los-contenedores-activos-e-inactivos">7. Listar Todos los Contenedores (Activos e Inactivos)</h3>
+<p>Para ver todos los contenedores, incluyendo los que no están en ejecución:</p>
+<pre><code class="language-bash">docker ps -a
+</code></pre>
+<p>Muestra una lista completa de todos los contenedores, proporcionando información sobre su estado actual.</p>
+<h3 id="8-eliminar-un-contenedor-especifico">8. Eliminar un Contenedor Específico</h3>
+<p>Si necesitas eliminar un contenedor específico, primero asegúrate de que esté detenido y luego elimínalo:</p>
+<pre><code class="language-bash">docker rm &lt;nombre_del_contenedor&gt;
+</code></pre>
+<p>Elimina el contenedor especificado de tu sistema. Útil para limpiar contenedores que ya no necesitas.</p>
+<h3 id="9-ver-las-imagenes-disponibles-en-tu-sistema">9. Ver las Imágenes Disponibles en tu Sistema</h3>
+<p>Para listar todas las imágenes de Docker que tienes localmente:</p>
+<pre><code class="language-bash">docker images
+</code></pre>
+<p>Muestra una lista de todas las imágenes descargadas en tu sistema, incluyendo sus etiquetas y tamaños.</p>
+<h3 id="10-inspeccionar-un-contenedor-o-imagen">10. Inspeccionar un Contenedor o Imagen</h3>
+<p>Para obtener detalles detallados sobre un contenedor o una imagen específica:</p>
+<pre><code class="language-bash">docker inspect &lt;nombre_del_contenedor_o_imagen&gt;
+</code></pre>
+<p>Proporciona información detallada en formato JSON sobre la configuración y el estado del contenedor o la imagen.</p>
+<h3 id="11-comprobar-el-estado-del-sistema-docker">11. Comprobar el Estado del Sistema Docker</h3>
+<p>Para obtener una visión general del estado actual de Docker en tu sistema:</p>
+<pre><code class="language-bash">docker system info
+</code></pre>
+<p>Muestra información detallada sobre la configuración de Docker, incluyendo versiones, recursos utilizados y más.</p>
+<h3 id="12-limpiar-recursos-no-utilizados">12. Limpiar Recursos No Utilizados</h3>
+<p>Para liberar espacio eliminando contenedores detenidos, imágenes no utilizadas, volúmenes sin referencia y redes no utilizadas:</p>
+<pre><code class="language-bash">docker system prune
+</code></pre>
+<p>Ejecuta una limpieza completa eliminando todos los recursos no utilizados, ayudando a mantener tu sistema optimizado.</p>
+<h3 id="13-ejecutar-comandos-en-un-contenedor-en-ejecucion">13. Ejecutar Comandos en un Contenedor en Ejecución</h3>
+<p>Para ejecutar cualquier comando adicional dentro de un contenedor en ejecución:</p>
+<pre><code class="language-bash">docker exec -it &lt;nombre_del_contenedor&gt; &lt;comando&gt;
+</code></pre>
+<h3 id="14-guardar-y-cargar-imagenes-de-docker">14. Guardar y Cargar Imágenes de Docker</h3>
+<p>Guardar una Imagen:</p>
+<pre><code class="language-bash">docker save -o &lt;archivo_de_salida&gt;.tar &lt;nombre_de_la_imagen&gt;
+</code></pre>
+<p>Exporta una imagen de Docker a un archivo tar, facilitando su distribución o respaldo.</p>
+<p>Cargar una Imagen:</p>
+<pre><code class="language-bash">docker load -i &lt;archivo_de_entrada&gt;.tar
+</code></pre>
+<p>Importa una imagen de Docker desde un archivo tar previamente guardado.</p>
+<h3 id="15-buscar-imagenes-en-docker-hub">15. Buscar Imágenes en Docker Hub</h3>
+<p>Para buscar imágenes disponibles en Docker Hub directamente desde la terminal:</p>
+<pre><code class="language-bash">docker search &lt;término_de_búsqueda&gt;
+</code></pre>
+<p>Ayuda a encontrar imágenes oficiales o de terceros que puedan ser útiles para tu proyecto.</p>
+<h3 id="16-actualizar-docker-compose">16. Actualizar Docker Compose</h3>
+<p>Mantener <code>docker-compose</code> actualizado es crucial para aprovechar las últimas mejoras y correcciones de errores. Para actualizar <code>docker-compose</code> en sistemas basados en Unix:</p>
+<pre><code class="language-bash">sudo curl -L &quot;https://github.com/docker/compose/releases/download/&lt;versión&gt;/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+</code></pre>
+<p>Reemplaza <code>&lt;versión&gt;</code> con la versión deseada para descargar e instalar la última versión de <code>docker-compose</code>.</p>
+<h3 id="17-mover-archivos-hacia-y-desde-el-contenedor">17. Mover Archivos hacia y desde el Contenedor</h3>
+<p>Para mover archivos entre tu sistema host y el contenedor Docker, puedes utilizar el comando <code>docker cp</code>. En nuestro entorno, hemos definido un volumen:</p>
+<pre><code class="language-yaml">volumes:
+      - taller_data:/home/taller
+</code></pre>
+<p>Esto significa que el directorio <code>/home/taller</code> dentro del contenedor está asociado al volumen <code>taller_data</code>. Aunque los volúmenes nombrados no son fácilmente accesibles directamente desde el host, <code>docker cp</code> es una herramienta eficaz para transferir archivos.</p>
+<p>Para copiar un archivo o directorio desde tu sistema host al contenedor, usa el siguiente comando:</p>
+<pre><code class="language-bash">docker cp &lt;ruta_en_host&gt; mc-taller-env-container:/home/taller/
+</code></pre>
+<p>Por ejemplo, supongamos que tienes un archivo llamado data.csv en tu escritorio y deseas copiarlo al directorio <code>/home/taller</code> dentro del contenedor:</p>
+<pre><code class="language-bash">docker cp ~/Desktop/data.csv mc-taller-env-container:/home/taller/
+</code></pre>
+<p>Para copiar un archivo o directorio desde el contenedor a tu sistema host, usa:</p>
+<pre><code class="language-bash">docker cp mc-taller-env-container:/home/taller/&lt;archivo_o_directorio&gt; &lt;ruta_en_host&gt;
+</code></pre>
+<h2 id="resumen-de-comandos-clave">Resumen de Comandos Clave</h2>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker-compose down</code></td>
+<td>Detiene y elimina contenedores, redes y volúmenes.</td>
+</tr>
+<tr>
+<td><code>docker-compose restart</code></td>
+<td>Reinicia los contenedores sin reconstruir imágenes.</td>
+</tr>
+<tr>
+<td><code>docker logs &lt;contenedor&gt;</code></td>
+<td>Muestra los logs de un contenedor específico.</td>
+</tr>
+<tr>
+<td><code>docker-compose up -d --build</code></td>
+<td>Reconstruye imágenes y reinicia los contenedores.</td>
+</tr>
+<tr>
+<td><code>docker image prune</code></td>
+<td>Elimina imágenes no utilizadas.</td>
+</tr>
+<tr>
+<td><code>docker exec -it &lt;contenedor&gt; bash</code></td>
+<td>Accede al contenedor usando bash.</td>
+</tr>
+<tr>
+<td><code>docker ps -a</code></td>
+<td>Lista todos los contenedores, activos e inactivos.</td>
+</tr>
+<tr>
+<td><code>docker rm &lt;contenedor&gt;</code></td>
+<td>Elimina un contenedor específico.</td>
+</tr>
+<tr>
+<td><code>docker images</code></td>
+<td>Lista todas las imágenes locales.</td>
+</tr>
+<tr>
+<td><code>docker inspect &lt;objeto&gt;</code></td>
+<td>Muestra detalles de un contenedor o imagen.</td>
+</tr>
+<tr>
+<td><code>docker system info</code></td>
+<td>Proporciona información general sobre Docker.</td>
+</tr>
+<tr>
+<td><code>docker system prune</code></td>
+<td>Limpia recursos no utilizados.</td>
+</tr>
+<tr>
+<td><code>docker exec -it &lt;contenedor&gt; &lt;cmd&gt;</code></td>
+<td>Ejecuta un comando dentro de un contenedor.</td>
+</tr>
+<tr>
+<td><code>docker save -o archivo.tar &lt;imagen&gt;</code></td>
+<td>Guarda una imagen en un archivo tar.</td>
+</tr>
+<tr>
+<td><code>docker load -i archivo.tar</code></td>
+<td>Carga una imagen desde un archivo tar.</td>
+</tr>
+<tr>
+<td><code>docker search &lt;término&gt;</code></td>
+<td>Busca imágenes en Docker Hub.</td>
+</tr>
+<tr>
+<td><strong>Actualización de Docker Compose</strong></td>
+<td>Actualiza <code>docker-compose</code> a la última versión.</td>
+</tr>
+<tr>
+<td><code>docker cp &lt;host_path&gt; &lt;container&gt;:&lt;container_path&gt;</code></td>
+<td>Copia archivos desde el host al contenedor.</td>
+</tr>
+<tr>
+<td><code>docker cp &lt;container&gt;:&lt;container_path&gt; &lt;host_path&gt;</code></td>
+<td>Copia archivos desde el contenedor al host.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tooltips", "navigation.instant", "navigation.instant.progress", "navigation.tabs", "navidation.tabs.sticky", "navigation.tracking", "navigation.sections", "navigation.expand", "toc.integrate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>
