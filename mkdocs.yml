@@ -53,5 +53,7 @@ nav:
   - Herramientas de Desarrollo:
     - Docker: tools/docker.md
     - Terminal: tools/terminal.md
-  - Primeros Pasos:
-    - Probabilidad: intro/probability.md
+    - tmux: tools/tmux.md
+    - pyenv: tools/pyenv.md
+    #- Primeros Pasos:
+    #- Probabilidad: intro/probability.md
