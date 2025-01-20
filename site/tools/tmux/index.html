@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../docker/">
+        <link rel="prev" href="../terminal/">
       
       
-        <link rel="next" href="../tmux/">
+        <link rel="next" href="../pyenv/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Terminal - Métodos de Monte Carlo para Transporte de Partículas Nucleares con Python</title>
+        <title>tmux - Métodos de Monte Carlo para Transporte de Partículas Nucleares con Python</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fundamentos-del-terminal-linux-con-zsh-y-starship" class="md-skip">
+        <a href="#introduccion-a-tmux" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Terminal
+              tmux
             
           </span>
         </div>
@@ -368,6 +368,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../terminal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Terminal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -377,14 +398,12 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    Terminal
+    tmux
   </span>
   
 
@@ -395,7 +414,7 @@
         
   
   <span class="md-ellipsis">
-    Terminal
+    tmux
   </span>
   
 
@@ -407,8 +426,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -417,113 +434,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduccion-al-terminal-linux" class="md-nav__link">
+  <a href="#introduccion-a-tmux" class="md-nav__link">
     <span class="md-ellipsis">
-      Introducción al Terminal Linux
+      Introducción a tmux
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Introducción al Terminal Linux">
+    <nav class="md-nav" aria-label="Introducción a tmux">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#que-es-el-terminal" class="md-nav__link">
+  <a href="#que-es-tmux" class="md-nav__link">
     <span class="md-ellipsis">
-      ¿Qué es el Terminal?
+      ¿Qué es tmux?
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ventajas-de-usar-el-terminal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ventajas de Usar el Terminal
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#introduccion-a-zsh" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introducción a zsh
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Introducción a zsh">
+    <nav class="md-nav" aria-label="¿Qué es tmux?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#que-es-zsh" class="md-nav__link">
+  <a href="#ventajas-de-usar-tmux" class="md-nav__link">
     <span class="md-ellipsis">
-      ¿Qué es zsh?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ventajas-de-usar-zsh" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ventajas de Usar zsh
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuracion-de-zsh-con-zshrc" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuración de zsh con .zshrc
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuración de zsh con .zshrc">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#que-es-el-archivo-zshrc" class="md-nav__link">
-    <span class="md-ellipsis">
-      ¿Qué es el Archivo .zshrc?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#personalizacion-basica" class="md-nav__link">
-    <span class="md-ellipsis">
-      Personalización Básica
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Personalización Básica">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cambiar-el-prompt" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cambiar el Prompt
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alias" class="md-nav__link">
-    <span class="md-ellipsis">
-      Alias
+      Ventajas de Usar tmux
     </span>
   </a>
   
@@ -540,38 +473,62 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#integracion-con-starship" class="md-nav__link">
+  <a href="#resumen-de-comandos-clave" class="md-nav__link">
     <span class="md-ellipsis">
-      Integración con Starship
+      Resumen de Comandos Clave
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resumen de Comandos Clave">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comandos-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comandos Generales
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#navegacion-basica-en-el-terminal" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#atajos-de-teclado" class="md-nav__link">
     <span class="md-ellipsis">
-      Navegación Básica en el Terminal
+      Atajos de Teclado
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#gestion-de-procesos" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-ventanas-y-paneles" class="md-nav__link">
     <span class="md-ellipsis">
-      Gestión de Procesos
+      Gestión de Ventanas y Paneles
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#redireccion-y-pipes" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#comandos-de-navegacion" class="md-nav__link">
     <span class="md-ellipsis">
-      Redirección y Pipes
+      Comandos de Navegación
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otros-comandos-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Otros Comandos Útiles
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -579,27 +536,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tmux/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    tmux
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -648,92 +584,206 @@
                   
 
 
-<h1 id="fundamentos-del-terminal-linux-con-zsh-y-starship">Fundamentos del Terminal Linux con zsh y Starship</h1>
-<p>En esta sección, aprenderás los fundamentos del uso del terminal en Linux, enfocándonos en <strong>zsh</strong> (Z Shell) y <strong>Starship</strong>, un prompt moderno y altamente configurable. Comprenderás cómo funcionan estas herramientas, cómo se configuran mediante el archivo <code>.zshrc</code>, y cómo pueden mejorar tu flujo de trabajo en el entorno Docker configurado para el Curso de Monte Carlo.</p>
-<h2 id="introduccion-al-terminal-linux">Introducción al Terminal Linux</h2>
-<h3 id="que-es-el-terminal">¿Qué es el Terminal?</h3>
-<p>El <strong>Terminal</strong> es una interfaz de línea de comandos que permite a los usuarios interactuar con el sistema operativo mediante comandos de texto. A diferencia de las interfaces gráficas de usuario (GUI), el terminal ofrece un control más directo y eficiente sobre el sistema.</p>
-<h3 id="ventajas-de-usar-el-terminal">Ventajas de Usar el Terminal</h3>
+  <h1>tmux</h1>
+
+<h2 id="introduccion-a-tmux">Introducción a tmux</h2>
+<p>Para mejorar tu productividad y gestionar múltiples tareas de manera eficiente en el terminal, <strong>tmux</strong> (Terminal Multiplexer) es una herramienta esencial. En esta sección, aprenderás qué es tmux, cómo funciona, sus conceptos clave como sesiones, ventanas y paneles (panes), y un cheatsheet de comandos básicos para comenzar a utilizarlo eficazmente. Además, se incluye una configuración personalizada donde la tecla líder está definida como <strong>Ctrl + Space</strong>.</p>
+<h3 id="que-es-tmux">¿Qué es tmux?</h3>
+<p><strong>tmux</strong> es un multiplexor de terminal que te permite crear y gestionar múltiples sesiones de terminal dentro de una sola ventana de terminal. Con tmux, puedes dividir tu terminal en múltiples paneles, cada uno ejecutando diferentes procesos o tareas, y mantener estas sesiones activas incluso si cierras la ventana del terminal o te desconectas del sistema.</p>
+<h4 id="ventajas-de-usar-tmux">Ventajas de Usar tmux</h4>
 <ul>
-<li><strong>Eficiencia y Velocidad</strong>: Ejecuta tareas rápidamente sin necesidad de navegar por menús gráficos.</li>
-<li><strong>Automatización de Tareas</strong>: Crea scripts para automatizar procesos repetitivos.</li>
-<li><strong>Acceso a Funcionalidades Avanzadas</strong>: Realiza operaciones que no siempre están disponibles en las GUI.</li>
+<li><strong>Multiplexación de Terminales</strong>: Ejecuta múltiples sesiones de terminal en una sola ventana.</li>
+<li><strong>Persistencia de Sesiones</strong>: Mantén tus sesiones activas incluso después de cerrar el terminal.</li>
+<li><strong>Organización Eficiente</strong>: Divide tu terminal en paneles y ventanas para una mejor gestión de tareas.</li>
+<li><strong>Personalización</strong>: Configura tmux según tus preferencias para optimizar tu flujo de trabajo.</li>
 </ul>
-<hr />
-<h2 id="introduccion-a-zsh">Introducción a zsh</h2>
-<h3 id="que-es-zsh">¿Qué es zsh?</h3>
-<p><strong>zsh</strong> (Z Shell) es un potente intérprete de comandos para sistemas Unix/Linux. Combina las características de otros shells como <code>bash</code>, <code>ksh</code>, y <code>tcsh</code>, ofreciendo mejoras significativas en términos de personalización y funcionalidad.</p>
-<h3 id="ventajas-de-usar-zsh">Ventajas de Usar zsh</h3>
-<ul>
-<li><strong>Autocompletado Avanzado</strong>: Ofrece sugerencias inteligentes y completado de comandos más robusto.</li>
-<li><strong>Mejoras en la Personalización</strong>: Permite una configuración altamente personalizada del entorno de trabajo.</li>
-<li><strong>Integración con Plugins y Temas</strong>: Compatible con frameworks como Oh My Zsh y herramientas como Starship para mejorar la experiencia del usuario.</li>
-</ul>
-<hr />
-<h2 id="configuracion-de-zsh-con-zshrc">Configuración de zsh con <code>.zshrc</code></h2>
-<h3 id="que-es-el-archivo-zshrc">¿Qué es el Archivo <code>.zshrc</code>?</h3>
-<p>El archivo <code>.zshrc</code> es un script de configuración que se ejecuta cada vez que se inicia una nueva sesión de zsh. Aquí es donde defines variables de entorno, alias, funciones personalizadas, y configuras el prompt, entre otros ajustes.</p>
-<h3 id="personalizacion-basica">Personalización Básica</h3>
-<h4 id="cambiar-el-prompt">Cambiar el Prompt</h4>
-<p>El prompt es la línea que ves en el terminal que indica que puedes ingresar un comando. Con zsh y Starship, puedes personalizar este prompt para mostrar información útil como el directorio actual, el estado de Git, etc.</p>
-<h4 id="alias">Alias</h4>
-<p>Los alias son atajos para comandos largos o complejos. Por ejemplo:</p>
-<pre><code class="language-zsh">alias ll='ls -la'
-alias gs='git status'
-alias docker-start='docker-compose up -d
-</code></pre>
-<h2 id="integracion-con-starship">Integración con Starship</h2>
-<p>Starship es un prompt rápido y personalizable para cualquier shell, incluyendo zsh. Se configura principalmente a través de un archivo de configuración separado (<code>starship.toml</code>), pero puede interactuar con <code>.zshrc</code> para una integración fluida.</p>
-<h2 id="navegacion-basica-en-el-terminal">Navegación Básica en el Terminal</h2>
-<p>Comandos de Navegación de Directorios:</p>
-<ul>
-<li><code>cd &lt;directorio&gt;</code>: Cambia al directorio especificado.</li>
-<li><code>ls</code>: Lista los archivos y carpetas en el directorio actual.</li>
-<li><code>pwd</code>: Muestra la ruta completa del directorio actual.</li>
-</ul>
-<p>Gestión de Archivos y Directorios:</p>
-<ul>
-<li><code>cp &lt;origen&gt; &lt;destino&gt;</code>: Copia archivos o directorios.</li>
-<li><code>mv &lt;origen&gt; &lt;destino&gt;</code>: Mueve o renombra archivos o directorios.</li>
-<li><code>rm &lt;archivo&gt;</code>: Elimina un archivo.</li>
-<li><code>mkdir &lt;nombre&gt;</code>: Crea un nuevo directorio.</li>
-<li><code>rmdir &lt;nombre&gt;</code>: Elimina un directorio vacío.</li>
-</ul>
-<p>Visualización y Edición de Archivos:</p>
-<ul>
-<li><code>cat &lt;archivo&gt;</code>: Muestra el contenido de un archivo.</li>
-<li><code>less &lt;archivo&gt;</code>: Permite una visualización paginada de un archivo.</li>
-<li><code>nano &lt;archivo&gt;</code>: Edita un archivo usando el editor Nano.</li>
-<li><code>vim &lt;archivo&gt;</code>: Edita un archivo usando el editor Vim.</li>
-</ul>
-<h2 id="gestion-de-procesos">Gestión de Procesos</h2>
-<p>Listar Procesos:</p>
-<ul>
-<li><code>ps</code>: Muestra los procesos en ejecución.</li>
-<li><code>top</code>: Muestra una lista dinámica de los procesos en ejecución.</li>
-<li><code>htop</code>: Una versión mejorada y más interactiva de top (puede requerir instalación).</li>
-</ul>
-<p>Controlar Procesos:
-- <code>kill &lt;PID&gt;</code>: Termina el proceso con el ID especificado.
-- <code>pkill &lt;nombre&gt;</code>: Termina procesos por nombre.
-- <code>bg</code>: Envía un proceso detenido al fondo.
-- <code>fg</code>: Trae un proceso del fondo al frente.
-- <code>jobs</code>: Lista los trabajos en segundo plano y detenidos.</p>
-<h2 id="redireccion-y-pipes">Redirección y Pipes</h2>
-<p>Redirección de Entrada y Salida:</p>
-<p><code>&gt;</code>: Redirige la salida de un comando a un archivo, sobrescribiéndolo.</p>
-<pre><code class="language-bash">echo &quot;Hola Mundo&quot; &gt; hola.txt
-</code></pre>
-<p><code>&gt;&gt;</code>: Redirige la salida de un comando a un archivo, agregando al final.</p>
-<pre><code class="language-bash">echo &quot;Otra línea&quot; &gt;&gt; hola.txt
-</code></pre>
-<p><code>&lt;</code>: Redirige la entrada de un archivo a un comando.</p>
-<pre><code class="language-bash">wc -l &lt; hola.txt
-</code></pre>
-<p>Uso de Pipes para Encadenar Comandos:</p>
-<p><code>|</code>: Toma la salida de un comando y la usa como entrada para otro.</p>
-<pre><code class="language-bash">ls -la | grep &quot;Proyecto&quot;
-</code></pre>
+<h2 id="resumen-de-comandos-clave">Resumen de Comandos Clave</h2>
+<h3 id="comandos-generales">Comandos Generales</h3>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tmux new -s &lt;nombre_sesion&gt;</code></td>
+<td>Crea una nueva sesión con el nombre especificado.</td>
+</tr>
+<tr>
+<td><code>tmux ls</code></td>
+<td>Lista todas las sesiones activas.</td>
+</tr>
+<tr>
+<td><code>tmux attach -t &lt;nombre_sesion&gt;</code></td>
+<td>Adjunta a una sesión existente.</td>
+</tr>
+<tr>
+<td><code>tmux detach</code></td>
+<td>Separa la sesión actual sin cerrarla.</td>
+</tr>
+<tr>
+<td><code>tmux kill-session -t &lt;nombre_sesion&gt;</code></td>
+<td>Elimina una sesión específica.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="atajos-de-teclado">Atajos de Teclado</h3>
+<blockquote>
+<p><strong>Nota</strong>: Todos los atajos comienzan con la tecla líder <strong>Ctrl + Space</strong>.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Atajo</th>
+<th>Acción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl + Space, c</code></td>
+<td>Crea una nueva ventana.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, n</code></td>
+<td>Navega a la siguiente ventana.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, p</code></td>
+<td>Navega a la ventana anterior.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, &lt;número&gt;</code></td>
+<td>Selecciona la ventana por su número.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, %</code></td>
+<td>Divide la ventana actual horizontalmente en dos paneles.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, "</code></td>
+<td>Divide la ventana actual verticalmente en dos paneles.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, Flecha (← ↑ → ↓)</code></td>
+<td>Navega entre paneles en la dirección de la flecha.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, x</code></td>
+<td>Cierra el panel actual.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, d</code></td>
+<td>Separa la sesión actual (detach).</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, ?</code></td>
+<td>Muestra una lista de todos los atajos de teclado disponibles.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gestion-de-ventanas-y-paneles">Gestión de Ventanas y Paneles</h3>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl + Space, c</code></td>
+<td>Crea una nueva ventana.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, n</code></td>
+<td>Navega a la siguiente ventana.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, p</code></td>
+<td>Navega a la ventana anterior.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, &lt;número&gt;</code></td>
+<td>Selecciona la ventana por su número.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, %</code></td>
+<td>Divide la ventana actual horizontalmente.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, "</code></td>
+<td>Divide la ventana actual verticalmente.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, Flecha (← ↑ → ↓)</code></td>
+<td>Cambia el enfoque al panel en la dirección de la flecha.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, o</code></td>
+<td>Alterna entre los paneles dentro de una ventana.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, x</code></td>
+<td>Cierra el panel actual.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="comandos-de-navegacion">Comandos de Navegación</h3>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl + Space, h</code></td>
+<td>Selecciona el panel a la izquierda.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, j</code></td>
+<td>Selecciona el panel inferior.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, k</code></td>
+<td>Selecciona el panel superior.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, l</code></td>
+<td>Selecciona el panel a la derecha.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="otros-comandos-utiles">Otros Comandos Útiles</h3>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl + Space, d</code></td>
+<td>Separa la sesión actual (detach).</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, ?</code></td>
+<td>Muestra ayuda y lista de atajos disponibles.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, t</code></td>
+<td>Muestra la hora en la barra de estado de tmux.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Space, s</code></td>
+<td>Lista todas las sesiones activas.</td>
+</tr>
+</tbody>
+</table>
 
 
 

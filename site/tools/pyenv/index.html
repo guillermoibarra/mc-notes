@@ -11,10 +11,8 @@
       
       
       
-        <link rel="prev" href="../docker/">
+        <link rel="prev" href="../tmux/">
       
-      
-        <link rel="next" href="../tmux/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>Terminal - Métodos de Monte Carlo para Transporte de Partículas Nucleares con Python</title>
+        <title>pyenv - Métodos de Monte Carlo para Transporte de Partículas Nucleares con Python</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fundamentos-del-terminal-linux-con-zsh-y-starship" class="md-skip">
+        <a href="#introduccion-a-pyenv" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -107,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Terminal
+              pyenv
             
           </span>
         </div>
@@ -368,30 +366,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Terminal
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../terminal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -400,185 +378,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduccion-al-terminal-linux" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introducción al Terminal Linux
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Introducción al Terminal Linux">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#que-es-el-terminal" class="md-nav__link">
-    <span class="md-ellipsis">
-      ¿Qué es el Terminal?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ventajas-de-usar-el-terminal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ventajas de Usar el Terminal
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#introduccion-a-zsh" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introducción a zsh
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Introducción a zsh">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#que-es-zsh" class="md-nav__link">
-    <span class="md-ellipsis">
-      ¿Qué es zsh?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ventajas-de-usar-zsh" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ventajas de Usar zsh
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuracion-de-zsh-con-zshrc" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuración de zsh con .zshrc
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuración de zsh con .zshrc">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#que-es-el-archivo-zshrc" class="md-nav__link">
-    <span class="md-ellipsis">
-      ¿Qué es el Archivo .zshrc?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#personalizacion-basica" class="md-nav__link">
-    <span class="md-ellipsis">
-      Personalización Básica
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Personalización Básica">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cambiar-el-prompt" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cambiar el Prompt
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alias" class="md-nav__link">
-    <span class="md-ellipsis">
-      Alias
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integracion-con-starship" class="md-nav__link">
-    <span class="md-ellipsis">
-      Integración con Starship
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#navegacion-basica-en-el-terminal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Navegación Básica en el Terminal
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gestion-de-procesos" class="md-nav__link">
-    <span class="md-ellipsis">
-      Gestión de Procesos
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#redireccion-y-pipes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Redirección y Pipes
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -609,10 +408,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../pyenv/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    pyenv
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -621,6 +438,141 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion-a-pyenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción a pyenv
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducción a pyenv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-pyenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Qué es pyenv?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-funciona-pyenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cómo Funciona pyenv?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Cómo Funciona pyenv?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes-clave-de-pyenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Componentes Clave de pyenv
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beneficios-de-usar-pyenv-en-este-curso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beneficios de Usar pyenv en Este Curso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheatsheet-de-comandos-de-pyenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cheatsheet de Comandos de pyenv
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cheatsheet de Comandos de pyenv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comandos-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comandos Generales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comandos-de-entornos-virtuales-pyenv-virtualenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comandos de Entornos Virtuales (pyenv-virtualenv)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comandos-de-navegacion-y-gestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comandos de Navegación y Gestión
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comandos-avanzados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comandos Avanzados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos Prácticos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -648,92 +600,214 @@
                   
 
 
-<h1 id="fundamentos-del-terminal-linux-con-zsh-y-starship">Fundamentos del Terminal Linux con zsh y Starship</h1>
-<p>En esta sección, aprenderás los fundamentos del uso del terminal en Linux, enfocándonos en <strong>zsh</strong> (Z Shell) y <strong>Starship</strong>, un prompt moderno y altamente configurable. Comprenderás cómo funcionan estas herramientas, cómo se configuran mediante el archivo <code>.zshrc</code>, y cómo pueden mejorar tu flujo de trabajo en el entorno Docker configurado para el Curso de Monte Carlo.</p>
-<h2 id="introduccion-al-terminal-linux">Introducción al Terminal Linux</h2>
-<h3 id="que-es-el-terminal">¿Qué es el Terminal?</h3>
-<p>El <strong>Terminal</strong> es una interfaz de línea de comandos que permite a los usuarios interactuar con el sistema operativo mediante comandos de texto. A diferencia de las interfaces gráficas de usuario (GUI), el terminal ofrece un control más directo y eficiente sobre el sistema.</p>
-<h3 id="ventajas-de-usar-el-terminal">Ventajas de Usar el Terminal</h3>
+  <h1>pyenv</h1>
+
+<h2 id="introduccion-a-pyenv">Introducción a pyenv</h2>
+<p>En el <strong>Curso de Monte Carlo</strong>, es fundamental gestionar eficazmente las versiones de Python y los entornos virtuales para asegurar un desarrollo coherente y libre de conflictos. Para lograr esto, utilizamos <strong>pyenv</strong>, una herramienta poderosa y flexible que facilita la administración de múltiples versiones de Python y la creación de entornos virtuales aislados. A continuación, exploraremos qué es pyenv, cómo funciona y los beneficios que aporta específicamente a nuestro curso.</p>
+<h3 id="que-es-pyenv">¿Qué es pyenv?</h3>
+<p><strong>pyenv</strong> es una herramienta de gestión de versiones de Python que permite instalar, cambiar y administrar múltiples versiones de Python en un solo sistema de manera sencilla. Con pyenv, puedes alternar entre diferentes versiones de Python para diferentes proyectos, asegurando que cada proyecto utilice la versión adecuada sin interferencias.</p>
+<h3 id="como-funciona-pyenv">¿Cómo Funciona pyenv?</h3>
+<p>pyenv funciona interceptando los comandos relacionados con Python y redirigiéndolos a la versión de Python especificada por el usuario. Se integra con el sistema mediante ajustes en el archivo de configuración del shell (como <code>.zshrc</code>), lo que permite cambiar de versión de Python de manera dinámica según el directorio de trabajo o la configuración del proyecto.</p>
+<h4 id="componentes-clave-de-pyenv">Componentes Clave de pyenv</h4>
 <ul>
-<li><strong>Eficiencia y Velocidad</strong>: Ejecuta tareas rápidamente sin necesidad de navegar por menús gráficos.</li>
-<li><strong>Automatización de Tareas</strong>: Crea scripts para automatizar procesos repetitivos.</li>
-<li><strong>Acceso a Funcionalidades Avanzadas</strong>: Realiza operaciones que no siempre están disponibles en las GUI.</li>
+<li><strong>pyenv</strong>: El núcleo de la herramienta que gestiona las versiones de Python.</li>
+<li><strong>pyenv-virtualenv</strong>: Un plugin para pyenv que facilita la creación y gestión de entornos virtuales.</li>
+<li><strong>Shims</strong>: Pequeños scripts que interceptan las llamadas a Python y redirigen a la versión correcta.</li>
 </ul>
-<hr />
-<h2 id="introduccion-a-zsh">Introducción a zsh</h2>
-<h3 id="que-es-zsh">¿Qué es zsh?</h3>
-<p><strong>zsh</strong> (Z Shell) es un potente intérprete de comandos para sistemas Unix/Linux. Combina las características de otros shells como <code>bash</code>, <code>ksh</code>, y <code>tcsh</code>, ofreciendo mejoras significativas en términos de personalización y funcionalidad.</p>
-<h3 id="ventajas-de-usar-zsh">Ventajas de Usar zsh</h3>
-<ul>
-<li><strong>Autocompletado Avanzado</strong>: Ofrece sugerencias inteligentes y completado de comandos más robusto.</li>
-<li><strong>Mejoras en la Personalización</strong>: Permite una configuración altamente personalizada del entorno de trabajo.</li>
-<li><strong>Integración con Plugins y Temas</strong>: Compatible con frameworks como Oh My Zsh y herramientas como Starship para mejorar la experiencia del usuario.</li>
-</ul>
-<hr />
-<h2 id="configuracion-de-zsh-con-zshrc">Configuración de zsh con <code>.zshrc</code></h2>
-<h3 id="que-es-el-archivo-zshrc">¿Qué es el Archivo <code>.zshrc</code>?</h3>
-<p>El archivo <code>.zshrc</code> es un script de configuración que se ejecuta cada vez que se inicia una nueva sesión de zsh. Aquí es donde defines variables de entorno, alias, funciones personalizadas, y configuras el prompt, entre otros ajustes.</p>
-<h3 id="personalizacion-basica">Personalización Básica</h3>
-<h4 id="cambiar-el-prompt">Cambiar el Prompt</h4>
-<p>El prompt es la línea que ves en el terminal que indica que puedes ingresar un comando. Con zsh y Starship, puedes personalizar este prompt para mostrar información útil como el directorio actual, el estado de Git, etc.</p>
-<h4 id="alias">Alias</h4>
-<p>Los alias son atajos para comandos largos o complejos. Por ejemplo:</p>
-<pre><code class="language-zsh">alias ll='ls -la'
-alias gs='git status'
-alias docker-start='docker-compose up -d
-</code></pre>
-<h2 id="integracion-con-starship">Integración con Starship</h2>
-<p>Starship es un prompt rápido y personalizable para cualquier shell, incluyendo zsh. Se configura principalmente a través de un archivo de configuración separado (<code>starship.toml</code>), pero puede interactuar con <code>.zshrc</code> para una integración fluida.</p>
-<h2 id="navegacion-basica-en-el-terminal">Navegación Básica en el Terminal</h2>
-<p>Comandos de Navegación de Directorios:</p>
-<ul>
-<li><code>cd &lt;directorio&gt;</code>: Cambia al directorio especificado.</li>
-<li><code>ls</code>: Lista los archivos y carpetas en el directorio actual.</li>
-<li><code>pwd</code>: Muestra la ruta completa del directorio actual.</li>
-</ul>
-<p>Gestión de Archivos y Directorios:</p>
-<ul>
-<li><code>cp &lt;origen&gt; &lt;destino&gt;</code>: Copia archivos o directorios.</li>
-<li><code>mv &lt;origen&gt; &lt;destino&gt;</code>: Mueve o renombra archivos o directorios.</li>
-<li><code>rm &lt;archivo&gt;</code>: Elimina un archivo.</li>
-<li><code>mkdir &lt;nombre&gt;</code>: Crea un nuevo directorio.</li>
-<li><code>rmdir &lt;nombre&gt;</code>: Elimina un directorio vacío.</li>
-</ul>
-<p>Visualización y Edición de Archivos:</p>
-<ul>
-<li><code>cat &lt;archivo&gt;</code>: Muestra el contenido de un archivo.</li>
-<li><code>less &lt;archivo&gt;</code>: Permite una visualización paginada de un archivo.</li>
-<li><code>nano &lt;archivo&gt;</code>: Edita un archivo usando el editor Nano.</li>
-<li><code>vim &lt;archivo&gt;</code>: Edita un archivo usando el editor Vim.</li>
-</ul>
-<h2 id="gestion-de-procesos">Gestión de Procesos</h2>
-<p>Listar Procesos:</p>
-<ul>
-<li><code>ps</code>: Muestra los procesos en ejecución.</li>
-<li><code>top</code>: Muestra una lista dinámica de los procesos en ejecución.</li>
-<li><code>htop</code>: Una versión mejorada y más interactiva de top (puede requerir instalación).</li>
-</ul>
-<p>Controlar Procesos:
-- <code>kill &lt;PID&gt;</code>: Termina el proceso con el ID especificado.
-- <code>pkill &lt;nombre&gt;</code>: Termina procesos por nombre.
-- <code>bg</code>: Envía un proceso detenido al fondo.
-- <code>fg</code>: Trae un proceso del fondo al frente.
-- <code>jobs</code>: Lista los trabajos en segundo plano y detenidos.</p>
-<h2 id="redireccion-y-pipes">Redirección y Pipes</h2>
-<p>Redirección de Entrada y Salida:</p>
-<p><code>&gt;</code>: Redirige la salida de un comando a un archivo, sobrescribiéndolo.</p>
-<pre><code class="language-bash">echo &quot;Hola Mundo&quot; &gt; hola.txt
-</code></pre>
-<p><code>&gt;&gt;</code>: Redirige la salida de un comando a un archivo, agregando al final.</p>
-<pre><code class="language-bash">echo &quot;Otra línea&quot; &gt;&gt; hola.txt
-</code></pre>
-<p><code>&lt;</code>: Redirige la entrada de un archivo a un comando.</p>
-<pre><code class="language-bash">wc -l &lt; hola.txt
-</code></pre>
-<p>Uso de Pipes para Encadenar Comandos:</p>
-<p><code>|</code>: Toma la salida de un comando y la usa como entrada para otro.</p>
-<pre><code class="language-bash">ls -la | grep &quot;Proyecto&quot;
-</code></pre>
+<h3 id="beneficios-de-usar-pyenv-en-este-curso">Beneficios de Usar pyenv en Este Curso</h3>
+<p>Integrar pyenv en nuestro flujo de trabajo del Curso de Monte Carlo ofrece múltiples ventajas que mejorarán tu experiencia de desarrollo:</p>
+<ol>
+<li><strong>Gestión Sencilla de Múltiples Versiones de Python</strong></li>
+</ol>
+<p>pyenv permite instalar y utilizar múltiples versiones de Python en el mismo sistema sin conflictos. Esto es especialmente útil cuando trabajamos con diferentes proyectos que requieren versiones específicas de Python.</p>
+<ol>
+<li><strong>Entornos Virtuales Aislados</strong></li>
+</ol>
+<p>Con pyenv-virtualenv, puedes crear entornos virtuales aislados para cada proyecto, asegurando que las dependencias y paquetes instalados no afecten a otros proyectos. Esto promueve las mejores prácticas de desarrollo y evita problemas de compatibilidad.</p>
+<ol>
+<li><strong>Flexibilidad y Control</strong></li>
+</ol>
+<p>Puedes cambiar fácilmente la versión de Python a nivel global, por directorio o por proyecto, proporcionando un control granular sobre tu entorno de desarrollo.</p>
+<ol>
+<li><strong>Facilidad de Instalación y Uso</strong></li>
+</ol>
+<p>pyenv simplifica la instalación de nuevas versiones de Python y la creación de entornos virtuales con comandos sencillos, eliminando la necesidad de configuraciones manuales complejas.</p>
+<ol>
+<li><strong>Compatibilidad con Docker</strong></li>
+</ol>
+<p>Aunque utilizamos Docker para encapsular nuestros entornos, pyenv es igualmente útil para gestionar entornos de desarrollo locales, facilitando el desarrollo y las pruebas fuera de los contenedores Docker.</p>
+<ol>
+<li><strong>Mejora de la Productividad</strong></li>
+</ol>
+<p>Al automatizar la gestión de versiones y entornos, pyenv te permite enfocarte más en el desarrollo y menos en la configuración del entorno, aumentando tu eficiencia y productividad.</p>
+<h2 id="cheatsheet-de-comandos-de-pyenv">Cheatsheet de Comandos de pyenv</h2>
+<h3 id="comandos-generales">Comandos Generales</h3>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pyenv install &lt;versión&gt;</code></td>
+<td>Instala una versión específica de Python.</td>
+</tr>
+<tr>
+<td><code>pyenv uninstall &lt;versión&gt;</code></td>
+<td>Desinstala una versión específica de Python.</td>
+</tr>
+<tr>
+<td><code>pyenv versions</code></td>
+<td>Lista todas las versiones de Python instaladas.</td>
+</tr>
+<tr>
+<td><code>pyenv global &lt;versión&gt;</code></td>
+<td>Establece la versión global de Python.</td>
+</tr>
+<tr>
+<td><code>pyenv local &lt;versión&gt;</code></td>
+<td>Establece la versión de Python para el directorio actual.</td>
+</tr>
+<tr>
+<td><code>pyenv shell &lt;versión&gt;</code></td>
+<td>Establece la versión de Python para la sesión actual.</td>
+</tr>
+<tr>
+<td><code>pyenv rehash</code></td>
+<td>Recalcula los shims de pyenv (usualmente automático).</td>
+</tr>
+<tr>
+<td><code>pyenv which &lt;comando&gt;</code></td>
+<td>Muestra la ruta del ejecutable para un comando dado.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="comandos-de-entornos-virtuales-pyenv-virtualenv">Comandos de Entornos Virtuales (pyenv-virtualenv)</h3>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pyenv virtualenv &lt;versión&gt; &lt;nombre_env&gt;</code></td>
+<td>Crea un entorno virtual con la versión especificada.</td>
+</tr>
+<tr>
+<td><code>pyenv virtualenv-delete &lt;nombre_env&gt;</code></td>
+<td>Elimina un entorno virtual específico.</td>
+</tr>
+<tr>
+<td><code>pyenv activate &lt;nombre_env&gt;</code></td>
+<td>Activa el entorno virtual especificado.</td>
+</tr>
+<tr>
+<td><code>pyenv deactivate</code></td>
+<td>Desactiva el entorno virtual activo.</td>
+</tr>
+<tr>
+<td><code>pyenv virtualenvs</code></td>
+<td>Lista todos los entornos virtuales creados.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="comandos-de-navegacion-y-gestion">Comandos de Navegación y Gestión</h3>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pyenv version</code></td>
+<td>Muestra la versión actual de Python utilizada.</td>
+</tr>
+<tr>
+<td><code>pyenv version-name</code></td>
+<td>Muestra solo el nombre de la versión actual.</td>
+</tr>
+<tr>
+<td><code>pyenv global</code></td>
+<td>Muestra la versión global de Python establecida.</td>
+</tr>
+<tr>
+<td><code>pyenv local</code></td>
+<td>Muestra la versión de Python establecida localmente.</td>
+</tr>
+<tr>
+<td><code>pyenv shell</code></td>
+<td>Muestra la versión de Python establecida para la sesión.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="comandos-avanzados">Comandos Avanzados</h3>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pyenv update</code></td>
+<td>Actualiza pyenv a la última versión disponible.</td>
+</tr>
+<tr>
+<td><code>pyenv doctor</code></td>
+<td>Ejecuta un script para verificar la instalación de pyenv.</td>
+</tr>
+<tr>
+<td><code>pyenv exec &lt;comando&gt;</code></td>
+<td>Ejecuta un comando usando la versión de Python seleccionada.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ejemplos-practicos">Ejemplos Prácticos</h3>
+<table>
+<thead>
+<tr>
+<th>Ejemplo de Comando</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pyenv install 3.8.10</code></td>
+<td>Instala Python versión 3.8.10.</td>
+</tr>
+<tr>
+<td><code>pyenv global 3.8.10</code></td>
+<td>Establece Python 3.8.10 como la versión global.</td>
+</tr>
+<tr>
+<td><code>pyenv virtualenv 3.8.10 montecarlo-env</code></td>
+<td>Crea un entorno virtual llamado <code>montecarlo-env</code> con Python 3.8.10.</td>
+</tr>
+<tr>
+<td><code>pyenv activate montecarlo-env</code></td>
+<td>Activa el entorno virtual <code>montecarlo-env</code>.</td>
+</tr>
+<tr>
+<td><code>pyenv deactivate</code></td>
+<td>Desactiva el entorno virtual activo.</td>
+</tr>
+<tr>
+<td><code>pyenv uninstall 3.8.10</code></td>
+<td>Desinstala Python versión 3.8.10.</td>
+</tr>
+<tr>
+<td><code>pyenv virtualenv-delete montecarlo-env</code></td>
+<td>Elimina el entorno virtual <code>montecarlo-env</code>.</td>
+</tr>
+</tbody>
+</table>
 
 
 
